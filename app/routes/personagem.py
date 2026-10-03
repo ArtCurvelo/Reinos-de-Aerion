@@ -23,19 +23,30 @@ def criar_personagem():
         )
 
         session["jogador"] = {
-    "nome": jogador.nome,
-    "classe": jogador.classe.value,
-    "nivel": jogador.nivel,
-    "experiencia": jogador.experiencia,
-    "ouro": jogador.ouro,
-    "vida": jogador.vida,
-    "vida_maxima": jogador.vida_maxima,
-    "mana": jogador.mana,
-    "mana_maxima": jogador.mana_maxima,
-    "forca": jogador.forca,
-    "inteligencia": jogador.inteligencia,
-    "destreza": jogador.destreza
-}
+            "nome": jogador.nome,
+            "classe": jogador.classe.value,
+            "nivel": jogador.nivel,
+            "experiencia": jogador.experiencia,
+            "ouro": jogador.ouro,
+
+            "vida": jogador.vida,
+            "vida_maxima": jogador.vida_maxima,
+
+            "mana": jogador.mana,
+            "mana_maxima": jogador.mana_maxima,
+
+            "forca": jogador.forca,
+            "inteligencia": jogador.inteligencia,
+            "destreza": jogador.destreza,
+
+            "vida_porcentagem": (
+                jogador.vida / jogador.vida_maxima
+            ) * 100,
+
+            "mana_porcentagem": (
+                jogador.mana / jogador.mana_maxima
+            ) * 100
+        }
 
         print(jogador)
 
@@ -45,10 +56,12 @@ def criar_personagem():
 
 
 @personagem.route("/jogo")
-@personagem.route("/jogo")
 def jogo():
 
     jogador = session.get("jogador")
+
+    print("DADOS DA SESSÃO:")
+    print(jogador)
 
     if not jogador:
         return redirect(url_for("personagem.criar_personagem"))

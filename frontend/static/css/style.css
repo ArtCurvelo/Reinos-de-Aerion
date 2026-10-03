@@ -112,7 +112,54 @@ body {
 }
 
 
-/* Área do mundo */
+/* =========================
+   BARRAS DE STATUS
+   ========================= */
+
+.barra-status {
+    margin-bottom: 18px;
+}
+
+.status-cabecalho {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 6px;
+
+    font-size: 0.9rem;
+    color: #c5cad3;
+}
+
+.barra {
+    width: 100%;
+    height: 12px;
+
+    background: #0f131a;
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.barra-preenchimento {
+    height: 100%;
+
+    border-radius: 6px;
+
+    transition: width 0.3s ease;
+}
+
+.barra-preenchimento.vida {
+    background: #c0392b;
+}
+
+.barra-preenchimento.mana {
+    background: #2980b9;
+}
+
+
+/* =========================
+   ÁREA DO MUNDO
+   ========================= */
 
 .area-mundo {
     background: #181e28;
@@ -134,7 +181,9 @@ body {
 }
 
 
-/* Menu do jogo */
+/* =========================
+   MENU DO JOGO
+   ========================= */
 
 .menu-jogo {
     display: grid;
@@ -162,7 +211,9 @@ body {
 }
 
 
-/* Responsividade */
+/* =========================
+   RESPONSIVIDADE
+   ========================= */
 
 @media (max-width: 700px) {
 

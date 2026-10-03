@@ -41,15 +41,52 @@
 
                 <h2>Status</h2>
 
-                <p>
-                    Vida:
-                    {{ jogador.vida }}/{{ jogador.vida_maxima }}
-                </p>
+                <div class="barra-status">
 
-                <p>
-                    Mana:
-                    {{ jogador.mana }}/{{ jogador.mana_maxima }}
-                </p>
+                    <div class="status-cabecalho">
+
+                        <span>Vida</span>
+
+                        <span>
+                            {{ jogador.vida }}/{{ jogador.vida_maxima }}
+                        </span>
+
+                    </div>
+
+                    <div class="barra">
+
+                        <div
+                            class="barra-preenchimento vida"
+                            style="width: {{ jogador.vida_porcentagem }}%;"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="barra-status">
+
+                    <div class="status-cabecalho">
+
+                        <span>Mana</span>
+
+                        <span>
+                            {{ jogador.mana }}/{{ jogador.mana_maxima }}
+                        </span>
+
+                    </div>
+
+                    <div class="barra">
+
+                        <div
+                            class="barra-preenchimento mana"
+                            style="width: {{ jogador.mana_porcentagem }}%;"
+                        ></div>
+
+                    </div>
+
+                </div>
 
             </div>
 
