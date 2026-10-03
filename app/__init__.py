@@ -1,6 +1,7 @@
 from flask import Flask
 from pathlib import Path
 from app.routes.principal import principal
+from app.routes.personagem import personagem
 
 def create_app():
     base_dir = Path(__file__).resolve().parent.parent
@@ -10,4 +11,5 @@ def create_app():
     )
     
     app.register_blueprint(principal)
+    app.register_blueprint(personagem)
     return app
