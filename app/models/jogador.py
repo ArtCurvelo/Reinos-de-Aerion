@@ -11,6 +11,7 @@ class Jogador(BaseModel):
     experiencia: int = 0
     experiencia_maxima: int = 100
     ouro: int = 100
+    pontos_habilidade: int = 0
 
     forca: int = Field(ge=8, le=20)
     destreza: int = Field(ge=8, le=20)

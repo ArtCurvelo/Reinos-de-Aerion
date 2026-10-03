@@ -17,28 +17,53 @@
 
     <main class="tela-jogo">
 
+        <!-- CABEÇALHO -->
+
         <header class="cabecalho-jogo">
 
-            <h1>Reinos de Aerion</h1>
+            <div class="identidade-jogo">
+
+                <span class="titulo-jogo">
+                    REINOS DE AERION
+                </span>
+
+                <span class="subtitulo-jogo">
+                    AVENTURA
+                </span>
+
+            </div>
 
         </header>
 
 
+        <!-- PAINEL PRINCIPAL DO PERSONAGEM -->
+
         <section class="painel-jogador">
+
+
+            <!-- IDENTIDADE -->
 
             <div class="informacoes-personagem">
 
-                <h2>{{ jogador.nome }}</h2>
+                <div class="cabecalho-personagem">
 
-                <p class="classe-personagem">
-                    {{ jogador.classe }}
-                </p>
+                    <div>
 
-                <div class="dados-personagem">
+                        <h2>
+                            {{ jogador.nome }}
+                        </h2>
 
-                    <div class="dado-personagem">
+                        <p class="classe-personagem">
+                            {{ jogador.classe }}
+                        </p>
 
-                        <span>Nível</span>
+                    </div>
+
+                    <div class="nivel-personagem">
+
+                        <span>
+                            NÍVEL
+                        </span>
 
                         <strong>
                             {{ jogador.nivel }}
@@ -46,12 +71,32 @@
 
                     </div>
 
+                </div>
+
+
+                <div class="dados-personagem">
+
                     <div class="dado-personagem">
 
-                        <span>Ouro</span>
+                        <span>
+                            OURO
+                        </span>
 
                         <strong>
                             {{ jogador.ouro }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dado-personagem">
+
+                        <span>
+                            PONTOS DE HABILIDADE
+                        </span>
+
+                        <strong>
+                            {{ jogador.pontos_habilidade }}
                         </strong>
 
                     </div>
@@ -61,64 +106,28 @@
             </div>
 
 
+            <!-- STATUS -->
+
             <div class="status-personagem">
 
-                <h2>Status</h2>
+                <div class="titulo-secao">
 
-
-                <div class="barra-status">
-
-                    <div class="status-cabecalho">
-
-                        <span>Vida</span>
-
-                        <span>
-                            {{ jogador.vida }}/{{ jogador.vida_maxima }}
-                        </span>
-
-                    </div>
-
-                    <div class="barra">
-
-                        <div
-                            class="barra-preenchimento vida"
-                            style="width: {{ jogador.vida_porcentagem }}%;"
-                        ></div>
-
-                    </div>
+                    <span>
+                        STATUS
+                    </span>
 
                 </div>
 
 
+                <!-- EXPERIÊNCIA -->
+
                 <div class="barra-status">
 
                     <div class="status-cabecalho">
-
-                        <span>Mana</span>
 
                         <span>
-                            {{ jogador.mana }}/{{ jogador.mana_maxima }}
+                            EXPERIÊNCIA
                         </span>
-
-                    </div>
-
-                    <div class="barra">
-
-                        <div
-                            class="barra-preenchimento mana"
-                            style="width: {{ jogador.mana_porcentagem }}%;"
-                        ></div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="barra-status">
-
-                    <div class="status-cabecalho">
-
-                        <span>Experiência</span>
 
                         <span>
                             {{ jogador.experiencia }}/{{ jogador.experiencia_maxima }}
@@ -130,22 +139,217 @@
 
                         <div
                             class="barra-preenchimento experiencia"
-                            style="width: {{ (jogador.experiencia / jogador.experiencia_maxima) * 100 }}%;"
-                        ></div>
+                            style="
+                                width:
+                                {{
+                                    (
+                                        jogador.experiencia
+                                        /
+                                        jogador.experiencia_maxima
+                                    )
+                                    * 100
+                                }}%;
+                            "
+                        >
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ATRIBUTOS -->
+
+            <div class="atributos-personagem">
+
+                <div class="titulo-secao">
+
+                    <span>
+                        ATRIBUTOS
+                    </span>
+
+                </div>
+
+
+                <div class="grade-atributos">
+
+
+                    <!-- FORÇA -->
+
+                    <div class="atributo-card">
+
+                        <span class="atributo-nome">
+                            FORÇA
+                        </span>
+
+                        <div class="atributo-valor">
+
+                            <strong>
+                                {{ jogador.forca }}
+                            </strong>
+
+                            <span>
+                                {{ "%+d"|format((jogador.forca - 10) // 2) }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DESTREZA -->
+
+                    <div class="atributo-card">
+
+                        <span class="atributo-nome">
+                            DESTREZA
+                        </span>
+
+                        <div class="atributo-valor">
+
+                            <strong>
+                                {{ jogador.destreza }}
+                            </strong>
+
+                            <span>
+                                {{ "%+d"|format((jogador.destreza - 10) // 2) }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONSTITUIÇÃO -->
+
+                    <div class="atributo-card">
+
+                        <span class="atributo-nome">
+                            CONSTITUIÇÃO
+                        </span>
+
+                        <div class="atributo-valor">
+
+                            <strong>
+                                {{ jogador.constituicao }}
+                            </strong>
+
+                            <span>
+                                {{ "%+d"|format((jogador.constituicao - 10) // 2) }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- INTELIGÊNCIA -->
+
+                    <div class="atributo-card">
+
+                        <span class="atributo-nome">
+                            INTELIGÊNCIA
+                        </span>
+
+                        <div class="atributo-valor">
+
+                            <strong>
+                                {{ jogador.inteligencia }}
+                            </strong>
+
+                            <span>
+                                {{ "%+d"|format((jogador.inteligencia - 10) // 2) }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SABEDORIA -->
+
+                    <div class="atributo-card">
+
+                        <span class="atributo-nome">
+                            SABEDORIA
+                        </span>
+
+                        <div class="atributo-valor">
+
+                            <strong>
+                                {{ jogador.sabedoria }}
+                            </strong>
+
+                            <span>
+                                {{ "%+d"|format((jogador.sabedoria - 10) // 2) }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARISMA -->
+
+                    <div class="atributo-card">
+
+                        <span class="atributo-nome">
+                            CARISMA
+                        </span>
+
+                        <div class="atributo-valor">
+
+                            <strong>
+                                {{ jogador.carisma }}
+                            </strong>
+
+                            <span>
+                                {{ "%+d"|format((jogador.carisma - 10) // 2) }}
+                            </span>
+
+                        </div>
 
                     </div>
 
                 </div>
 
 
+                <!-- PONTOS DE HABILIDADE -->
+
+                <div class="pontos-habilidade">
+
+                    <span>
+                        PONTOS DE HABILIDADE DISPONÍVEIS
+                    </span>
+
+                    <strong>
+                        {{ jogador.pontos_habilidade }}
+                    </strong>
+
+                </div>
+
             </div>
 
         </section>
 
 
+        <!-- ÁREA DO MUNDO -->
+
         <section class="area-mundo">
 
-            <h2>Vila Inicial</h2>
+            <div class="cabecalho-local">
+
+                <span>
+                    LOCALIZAÇÃO
+                </span>
+
+                <h2>
+                    Vila Inicial
+                </h2>
+
+            </div>
 
             <p>
                 Você está na vila inicial de Aerion.
@@ -154,9 +358,14 @@
         </section>
 
 
+        <!-- MENU -->
+
         <nav class="menu-jogo">
 
-            <button title="Personagem">
+            <button
+                type="button"
+                title="Personagem"
+            >
 
                 <img
                     src="{{ url_for('static', filename='icons/personagem.svg') }}"
@@ -166,7 +375,10 @@
             </button>
 
 
-            <button title="Inventário">
+            <button
+                type="button"
+                title="Inventário"
+            >
 
                 <img
                     src="{{ url_for('static', filename='icons/inventario.svg') }}"
@@ -176,7 +388,10 @@
             </button>
 
 
-            <button title="Habilidades">
+            <button
+                type="button"
+                title="Habilidades"
+            >
 
                 <img
                     src="{{ url_for('static', filename='icons/habilidades.svg') }}"
@@ -186,7 +401,10 @@
             </button>
 
 
-            <button title="Quests">
+            <button
+                type="button"
+                title="Quests"
+            >
 
                 <img
                     src="{{ url_for('static', filename='icons/quests.svg') }}"
@@ -196,7 +414,10 @@
             </button>
 
 
-            <button title="Mapa">
+            <button
+                type="button"
+                title="Mapa"
+            >
 
                 <img
                     src="{{ url_for('static', filename='icons/mapa.svg') }}"
