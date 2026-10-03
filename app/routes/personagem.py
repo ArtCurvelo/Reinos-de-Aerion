@@ -27,6 +27,7 @@ def criar_personagem():
             "classe": jogador.classe.value,
             "nivel": jogador.nivel,
             "experiencia": jogador.experiencia,
+            "experiencia_maxima": jogador.experiencia_maxima,
             "ouro": jogador.ouro,
 
             "vida": jogador.vida,

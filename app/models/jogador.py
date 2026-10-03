@@ -7,6 +7,7 @@ class Jogador(BaseModel):
 
     nivel: int = 1
     experiencia: int = 0
+    experiencia_maxima: int = 100
     ouro: int = 100
 
     vida: int

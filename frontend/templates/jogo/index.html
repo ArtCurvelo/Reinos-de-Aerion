@@ -30,9 +30,33 @@
 
                 <h2>{{ jogador.nome }}</h2>
 
-                <p>Classe: {{ jogador.classe }}</p>
-                <p>Nível: {{ jogador.nivel }}</p>
-                <p>Ouro: {{ jogador.ouro }}</p>
+                <p class="classe-personagem">
+                    {{ jogador.classe }}
+                </p>
+
+                <div class="dados-personagem">
+
+                    <div class="dado-personagem">
+
+                        <span>Nível</span>
+
+                        <strong>
+                            {{ jogador.nivel }}
+                        </strong>
+
+                    </div>
+
+                    <div class="dado-personagem">
+
+                        <span>Ouro</span>
+
+                        <strong>
+                            {{ jogador.ouro }}
+                        </strong>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -40,6 +64,7 @@
             <div class="status-personagem">
 
                 <h2>Status</h2>
+
 
                 <div class="barra-status">
 
@@ -87,6 +112,31 @@
                     </div>
 
                 </div>
+
+
+                <div class="barra-status">
+
+                    <div class="status-cabecalho">
+
+                        <span>Experiência</span>
+
+                        <span>
+                            {{ jogador.experiencia }}/{{ jogador.experiencia_maxima }}
+                        </span>
+
+                    </div>
+
+                    <div class="barra">
+
+                        <div
+                            class="barra-preenchimento experiencia"
+                            style="width: {{ (jogador.experiencia / jogador.experiencia_maxima) * 100 }}%;"
+                        ></div>
+
+                    </div>
+
+                </div>
+
 
             </div>
 
