@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reinos de Aerion</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="menu-principal">
+
+        <h1>Reinos de Aerion</h1>
+
+        <p>Uma nova aventura está prestes a começar.</p>
+
+        <div class="menu-botoes">
+            <button>Novo Jogo</button>
+            <button>Continuar</button>
+            <button>Configurações</button>
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
