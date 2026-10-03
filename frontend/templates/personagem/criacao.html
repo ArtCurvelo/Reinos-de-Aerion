@@ -17,7 +17,16 @@
 
     <main class="criacao-personagem">
 
-        <h1>Criar Personagem</h1>
+        <header class="cabecalho-criacao">
+
+            <p class="titulo-jogo">
+                REINOS DE AERION
+            </p>
+
+            <h1>Criar Personagem</h1>
+
+        </header>
+
 
         <form method="POST" action="/novo-jogo">
 
@@ -33,41 +42,76 @@
                     name="nome"
                     minlength="3"
                     maxlength="30"
+                    placeholder="Nome"
                     required
                 >
 
             </div>
 
+
             <div class="campo">
 
-                <label for="classe">
+                <label>
                     Classe
                 </label>
 
-                <select id="classe" name="classe" required>
+                <div class="selecao-classes">
 
-                    <option value="">
-                        Selecione uma classe
-                    </option>
+                    <label class="classe-card">
 
-                    <option value="Guerreiro">
-                        Guerreiro
-                    </option>
+                        <input
+                            type="radio"
+                            name="classe"
+                            value="Guerreiro"
+                            required
+                        >
 
-                    <option value="Mago">
-                        Mago
-                    </option>
+                        <span>
+                            GUERREIRO
+                        </span>
 
-                    <option value="Ladino">
-                        Ladino
-                    </option>
+                    </label>
 
-                </select>
+
+                    <label class="classe-card">
+
+                        <input
+                            type="radio"
+                            name="classe"
+                            value="Mago"
+                        >
+
+                        <span>
+                            MAGO
+                        </span>
+
+                    </label>
+
+
+                    <label class="classe-card">
+
+                        <input
+                            type="radio"
+                            name="classe"
+                            value="Ladino"
+                        >
+
+                        <span>
+                            LADINO
+                        </span>
+
+                    </label>
+
+                </div>
 
             </div>
 
-            <button type="submit">
-                Criar Personagem
+
+            <button
+                type="submit"
+                class="botao-criar-personagem"
+            >
+                CRIAR PERSONAGEM
             </button>
 
         </form>

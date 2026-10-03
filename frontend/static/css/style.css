@@ -11,8 +11,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    background: #10131a;
-    color: #f1f1f1;
+    background: #0D1117;
+    color: #E6E9ED;
 
     font-family: Arial, sans-serif;
 }
@@ -33,7 +33,7 @@ body {
 
 .menu-principal p {
     margin-bottom: 30px;
-    color: #b8bec9;
+    color: #9AA4B2;
 }
 
 .menu-botoes {
@@ -45,18 +45,21 @@ body {
 .menu-botoes button {
     padding: 12px 40px;
 
-    border: none;
+    border: 1px solid #3A4654;
     border-radius: 6px;
 
-    background: #273142;
-    color: #ffffff;
+    background: #162235;
+    color: #E6E9ED;
 
     font-size: 1rem;
     cursor: pointer;
+
+    transition: background 0.2s, border-color 0.2s;
 }
 
 .menu-botoes button:hover {
-    background: #37445a;
+    background: #1C2A3D;
+    border-color: #69727D;
 }
 
 
@@ -80,6 +83,7 @@ body {
 
 .cabecalho-jogo h1 {
     font-size: 2.2rem;
+    color: #E6E9ED;
 }
 
 
@@ -96,8 +100,8 @@ body {
 
 .informacoes-personagem,
 .status-personagem {
-    background: #181e28;
-    border: 1px solid #2b3444;
+    background: #162235;
+    border: 1px solid #3A4654;
     border-radius: 10px;
     padding: 20px;
 }
@@ -112,12 +116,13 @@ body {
 
 .informacoes-personagem h2 {
     font-size: 1.6rem;
+    color: #E6E9ED;
 }
 
 .classe-personagem {
     margin-bottom: 20px;
 
-    color: #8f9aaa;
+    color: #9AA4B2;
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -136,20 +141,20 @@ body {
 
     padding: 12px;
 
-    background: #202733;
-    border: 1px solid #2b3444;
+    background: #1C2A3D;
+    border: 1px solid #3A4654;
     border-radius: 8px;
 }
 
 .dado-personagem span {
-    color: #8f9aaa;
+    color: #9AA4B2;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .dado-personagem strong {
-    color: #ffffff;
+    color: #E6E9ED;
     font-size: 1.2rem;
 }
 
@@ -169,14 +174,15 @@ body {
     margin-bottom: 6px;
 
     font-size: 0.9rem;
-    color: #c5cad3;
+    color: #9AA4B2;
 }
 
 .barra {
     width: 100%;
     height: 12px;
 
-    background: #0f131a;
+    background: #0D1117;
+    border: 1px solid #3A4654;
     border-radius: 6px;
 
     overflow: hidden;
@@ -191,15 +197,15 @@ body {
 }
 
 .barra-preenchimento.vida {
-    background: #c0392b;
+    background: #A94442;
 }
 
 .barra-preenchimento.mana {
-    background: #8e44ad;
+    background: #536FA3;
 }
 
 .barra-preenchimento.experiencia {
-    background: #22C55E;
+    background: #8C7A3E;
 }
 
 
@@ -208,8 +214,8 @@ body {
    ========================= */
 
 .area-mundo {
-    background: #181e28;
-    border: 1px solid #2b3444;
+    background: #162235;
+    border: 1px solid #3A4654;
     border-radius: 10px;
 
     padding: 25px;
@@ -220,10 +226,11 @@ body {
 
 .area-mundo h2 {
     margin-bottom: 10px;
+    color: #E6E9ED;
 }
 
 .area-mundo p {
-    color: #c5cad3;
+    color: #9AA4B2;
 }
 
 
@@ -238,22 +245,257 @@ body {
 }
 
 .menu-jogo button {
-    padding: 14px;
+    height: 58px;
 
-    border: 1px solid #2b3444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid #3A4654;
     border-radius: 8px;
 
-    background: #202837;
-    color: #ffffff;
+    background: #162235;
+    color: #E6E9ED;
 
     cursor: pointer;
-    font-size: 0.95rem;
 
-    transition: background 0.2s;
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+}
+
+.menu-jogo button img {
+    width: 26px;
+    height: 26px;
+
+    display: block;
+
+    flex-shrink: 0;
+
+    transition: transform 0.2s;
 }
 
 .menu-jogo button:hover {
-    background: #303b50;
+    background: #1C2A3D;
+    border-color: #69727D;
+
+    transform: translateY(-2px);
+}
+
+.menu-jogo button:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   CRIAÇÃO DE PERSONAGEM
+   ========================= */
+
+.criacao-personagem {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 35px;
+
+    background: #162235;
+    border: 1px solid #3A4654;
+    border-radius: 12px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Cabeçalho */
+
+.cabecalho-criacao {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo-jogo {
+    margin-bottom: 12px;
+
+    color: #B08D45;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.cabecalho-criacao h1 {
+    color: #E6E9ED;
+
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+
+/* Campos */
+
+.campo {
+    margin-bottom: 28px;
+}
+
+.campo > label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #E6E9ED;
+
+    font-size: 0.85rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* Campo de nome */
+
+.campo input[type="text"] {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background: #0D1117;
+    color: #E6E9ED;
+
+    border: 1px solid #3A4654;
+    border-radius: 7px;
+
+    outline: none;
+
+    font-size: 1rem;
+
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.campo input[type="text"]::placeholder {
+    color: #69727D;
+}
+
+.campo input[type="text"]:focus {
+    background: #111923;
+    border-color: #69727D;
+}
+
+
+/* Seleção de classes */
+
+.selecao-classes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.classe-card {
+    position: relative;
+
+    min-height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+
+    background: #1C2A3D;
+    border: 1px solid #3A4654;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+}
+
+.classe-card:hover {
+    background: #22334A;
+    border-color: #69727D;
+
+    transform: translateY(-2px);
+}
+
+
+/* Esconde o radio original */
+
+.classe-card input[type="radio"] {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* Nome da classe */
+
+.classe-card span {
+    color: #C5CBD4;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    letter-spacing: 0.8px;
+}
+
+
+/* Classe selecionada */
+
+.classe-card:has(input[type="radio"]:checked) {
+    background: #202F43;
+    border-color: #B08D45;
+
+    box-shadow:
+        inset 0 0 0 1px #B08D45,
+        0 0 15px rgba(176, 141, 69, 0.08);
+}
+
+.classe-card:has(input[type="radio"]:checked) span {
+    color: #E6E9ED;
+}
+
+
+/* Botão */
+
+.botao-criar-personagem {
+    width: 100%;
+
+    padding: 14px;
+
+    background: #B08D45;
+    color: #0D1117;
+
+    border: 1px solid #C09C55;
+    border-radius: 7px;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+}
+
+.botao-criar-personagem:hover {
+    background: #C09C55;
+    border-color: #D0AD65;
+
+    transform: translateY(-1px);
 }
 
 
@@ -277,6 +519,15 @@ body {
 
     .menu-jogo {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .criacao-personagem {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .selecao-classes {
+        grid-template-columns: 1fr;
     }
 
 }
