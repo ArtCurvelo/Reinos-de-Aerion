@@ -11,7 +11,8 @@ def create_app():
 
     app = Flask(
         __name__,
-        template_folder=base_dir / "frontend" / "templates"
+        template_folder=base_dir / "frontend" / "templates",
+        static_folder=base_dir / "frontend" / "static"
     )
 
     app.config["SECRET_KEY"] = "chave-temporaria"

@@ -23,9 +23,19 @@ def criar_personagem():
         )
 
         session["jogador"] = {
-            "nome": jogador.nome,
-            "classe": jogador.classe.value
-        }
+    "nome": jogador.nome,
+    "classe": jogador.classe.value,
+    "nivel": jogador.nivel,
+    "experiencia": jogador.experiencia,
+    "ouro": jogador.ouro,
+    "vida": jogador.vida,
+    "vida_maxima": jogador.vida_maxima,
+    "mana": jogador.mana,
+    "mana_maxima": jogador.mana_maxima,
+    "forca": jogador.forca,
+    "inteligencia": jogador.inteligencia,
+    "destreza": jogador.destreza
+}
 
         print(jogador)
 

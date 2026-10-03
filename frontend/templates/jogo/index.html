@@ -6,19 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Reinos de Aerion</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
 </head>
 
 <body>
 
-    <main>
+    <main class="tela-jogo">
 
-        <h1>Reinos de Aerion</h1>
+        <header class="cabecalho-jogo">
 
-        <h2>Bem-vindo, {{ jogador.nome }}!</h2>
+            <h1>Reinos de Aerion</h1>
 
-        <p>
-            Classe: {{ jogador.classe }}
-        </p>
+        </header>
+
+
+        <section class="painel-jogador">
+
+            <div class="informacoes-personagem">
+
+                <h2>{{ jogador.nome }}</h2>
+
+                <p>Classe: {{ jogador.classe }}</p>
+                <p>Nível: {{ jogador.nivel }}</p>
+                <p>Ouro: {{ jogador.ouro }}</p>
+
+            </div>
+
+
+            <div class="status-personagem">
+
+                <h2>Status</h2>
+
+                <p>
+                    Vida:
+                    {{ jogador.vida }}/{{ jogador.vida_maxima }}
+                </p>
+
+                <p>
+                    Mana:
+                    {{ jogador.mana }}/{{ jogador.mana_maxima }}
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="area-mundo">
+
+            <h2>Vila Inicial</h2>
+
+            <p>
+                Você está na vila inicial de Aerion.
+            </p>
+
+        </section>
+
+
+        <nav class="menu-jogo">
+
+            <button>Personagem</button>
+            <button>Inventário</button>
+            <button>Habilidades</button>
+            <button>Quests</button>
+            <button>Mapa</button>
+
+        </nav>
+
 
     </main>
 
