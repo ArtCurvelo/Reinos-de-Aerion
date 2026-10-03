@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atributos — Reinos de Aerion</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="criacao-personagem">
+
+        <header class="cabecalho-criacao">
+
+            <p class="titulo-jogo">
+                REINOS DE AERION
+            </p>
+
+            <h1>Distribuir Atributos</h1>
+
+            <p>
+                Distribua os pontos iniciais do seu personagem.
+            </p>
+
+        </header>
+
+
+        <section class="atributos-personagem">
+
+            <div class="cabecalho-atributos">
+
+                <span>
+                    Pontos disponíveis
+                </span>
+
+                <strong>
+                    {{ jogador.pontos_atributo }}
+                </strong>
+
+            </div>
+
+
+            <div class="lista-atributos">
+
+                <!-- FORÇA -->
+
+                <div class="atributo">
+
+                    <div class="atributo-info">
+
+                        <span class="atributo-nome">
+                            Força
+                        </span>
+
+                        <strong>
+                            {{ jogador.forca }}
+                        </strong>
+
+                    </div>
+
+                    <div class="botoes-atributo">
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.diminuir_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="forca"
+                            >
+
+                            <button type="submit">
+                                −
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.aumentar_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="forca"
+                            >
+
+                            <button type="submit">
+                                +
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DESTREZA -->
+
+                <div class="atributo">
+
+                    <div class="atributo-info">
+
+                        <span class="atributo-nome">
+                            Destreza
+                        </span>
+
+                        <strong>
+                            {{ jogador.destreza }}
+                        </strong>
+
+                    </div>
+
+                    <div class="botoes-atributo">
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.diminuir_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="destreza"
+                            >
+
+                            <button type="submit">
+                                −
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.aumentar_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="destreza"
+                            >
+
+                            <button type="submit">
+                                +
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONSTITUIÇÃO -->
+
+                <div class="atributo">
+
+                    <div class="atributo-info">
+
+                        <span class="atributo-nome">
+                            Constituição
+                        </span>
+
+                        <strong>
+                            {{ jogador.constituicao }}
+                        </strong>
+
+                    </div>
+
+                    <div class="botoes-atributo">
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.diminuir_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="constituicao"
+                            >
+
+                            <button type="submit">
+                                −
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.aumentar_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="constituicao"
+                            >
+
+                            <button type="submit">
+                                +
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INTELIGÊNCIA -->
+
+                <div class="atributo">
+
+                    <div class="atributo-info">
+
+                        <span class="atributo-nome">
+                            Inteligência
+                        </span>
+
+                        <strong>
+                            {{ jogador.inteligencia }}
+                        </strong>
+
+                    </div>
+
+                    <div class="botoes-atributo">
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.diminuir_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="inteligencia"
+                            >
+
+                            <button type="submit">
+                                −
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.aumentar_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="inteligencia"
+                            >
+
+                            <button type="submit">
+                                +
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SABEDORIA -->
+
+                <div class="atributo">
+
+                    <div class="atributo-info">
+
+                        <span class="atributo-nome">
+                            Sabedoria
+                        </span>
+
+                        <strong>
+                            {{ jogador.sabedoria }}
+                        </strong>
+
+                    </div>
+
+                    <div class="botoes-atributo">
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.diminuir_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="sabedoria"
+                            >
+
+                            <button type="submit">
+                                −
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.aumentar_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="sabedoria"
+                            >
+
+                            <button type="submit">
+                                +
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CARISMA -->
+
+                <div class="atributo">
+
+                    <div class="atributo-info">
+
+                        <span class="atributo-nome">
+                            Carisma
+                        </span>
+
+                        <strong>
+                            {{ jogador.carisma }}
+                        </strong>
+
+                    </div>
+
+                    <div class="botoes-atributo">
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.diminuir_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="carisma"
+                            >
+
+                            <button type="submit">
+                                −
+                            </button>
+
+                        </form>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('personagem.aumentar_atributo') }}"
+                        >
+
+                            <input
+                                type="hidden"
+                                name="atributo"
+                                value="carisma"
+                            >
+
+                            <button type="submit">
+                                +
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <form
+            method="POST"
+            action="{{ url_for('personagem.confirmar_atributos') }}"
+        >
+
+            <button
+                type="submit"
+                class="botao-criar-personagem"
+            >
+                CONFIRMAR ATRIBUTOS
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

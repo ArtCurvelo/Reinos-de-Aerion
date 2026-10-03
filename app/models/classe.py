@@ -12,9 +12,9 @@ class TipoClasse(str, Enum):
 class Classe(BaseModel):
     tipo: TipoClasse
 
-    vida_base: int
-    mana_base: int
-
     forca: int
-    inteligencia: int
     destreza: int
+    constituicao: int
+    inteligencia: int
+    sabedoria: int
+    carisma: int

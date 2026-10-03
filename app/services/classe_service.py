@@ -7,31 +7,38 @@ class ClasseService:
     def obter_classe(tipo: TipoClasse) -> Classe:
 
         classes = {
+
             TipoClasse.GUERREIRO: Classe(
                 tipo=TipoClasse.GUERREIRO,
-                vida_base=100,
-                mana_base=35,
-                forca=13,
-                inteligencia=5,
-                destreza=8
+
+                forca=14,
+                destreza=9,
+                constituicao=14,
+                inteligencia=8,
+                sabedoria=10,
+                carisma=8
             ),
 
             TipoClasse.MAGO: Classe(
                 tipo=TipoClasse.MAGO,
-                vida_base=50,
-                mana_base=120,
-                forca=4,
+
+                forca=8,
+                destreza=10,
+                constituicao=8,
                 inteligencia=14,
-                destreza=8
+                sabedoria=12,
+                carisma=9
             ),
 
             TipoClasse.LADINO: Classe(
                 tipo=TipoClasse.LADINO,
-                vida_base=70,
-                mana_base=50,
-                forca=9,
-                inteligencia=7,
-                destreza=12
+
+                forca=10,
+                destreza=14,
+                constituicao=10,
+                inteligencia=10,
+                sabedoria=8,
+                carisma=12
             )
         }
 
