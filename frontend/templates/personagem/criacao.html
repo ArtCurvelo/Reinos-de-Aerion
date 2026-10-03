@@ -1,17 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Criar Personagem — Reinos de Aerion</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
 </head>
 
 <body>
 
-    <h1>Criar Personagem</h1>
+    <main class="criacao-personagem">
 
-    <p>Em breve você poderá criar seu personagem.</p>
+        <h1>Criar Personagem</h1>
+
+        <form method="POST" action="/novo-jogo">
+
+            <div class="campo">
+
+                <label for="nome">
+                    Nome do personagem
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    minlength="3"
+                    maxlength="30"
+                    required
+                >
+
+            </div>
+
+            <div class="campo">
+
+                <label for="classe">
+                    Classe
+                </label>
+
+                <select id="classe" name="classe" required>
+
+                    <option value="">
+                        Selecione uma classe
+                    </option>
+
+                    <option value="Guerreiro">
+                        Guerreiro
+                    </option>
+
+                    <option value="Mago">
+                        Mago
+                    </option>
+
+                    <option value="Ladino">
+                        Ladino
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button type="submit">
+                Criar Personagem
+            </button>
+
+        </form>
+
+    </main>
 
 </body>
+
 </html>
