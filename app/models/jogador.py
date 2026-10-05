@@ -3,6 +3,8 @@ from pydantic import BaseModel, Field
 from app.models.classe import TipoClasse
 from app.models.item import Item
 
+from app.models.equipamento import Equipamento
+
 
 class Jogador(BaseModel):
     nome: str = Field(min_length=3, max_length=30)
@@ -23,4 +25,4 @@ class Jogador(BaseModel):
 
     pontos_atributo: int = 3
 
-    inventario: list[Item] = Field(default_factory=list)
+    inventario: list[Item | Equipamento] = Field(default_factory=list)

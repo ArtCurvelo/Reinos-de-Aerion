@@ -1,3 +1,4 @@
+from app.models.equipamento import Equipamento
 from app.models.item import Item
 from app.models.jogador import Jogador
 from app.systems.inventario import InventarioSystem
@@ -8,7 +9,7 @@ class InventarioService:
     @staticmethod
     def adicionar_item(
         jogador: Jogador,
-        item: Item
+        item: Item | Equipamento
     ) -> Jogador:
 
         InventarioSystem.adicionar_item(
@@ -37,7 +38,7 @@ class InventarioService:
     def obter_item(
         jogador: Jogador,
         item_id: str
-    ) -> Item | None:
+    ) -> Item | Equipamento | None:
 
         return InventarioSystem.obter_item(
             jogador.inventario,

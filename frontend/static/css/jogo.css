@@ -67,7 +67,7 @@
 
     display: grid;
 
-    grid-template-columns: 310px minmax(0, 1fr);
+    grid-template-columns: 595px minmax(0, 1fr);
 
     gap: 12px;
 

@@ -1,3 +1,4 @@
+from app.models.equipamento import Equipamento
 from app.models.item import Item
 
 
@@ -5,16 +6,23 @@ class InventarioSystem:
 
     @staticmethod
     def adicionar_item(
-        inventario: list[Item],
-        item: Item
-    ) -> list[Item]:
+        inventario: list[Item | Equipamento],
+        item: Item | Equipamento
+    ) -> list[Item | Equipamento]:
 
+        # Equipamentos não são empilháveis.
+        if isinstance(item, Equipamento):
+            inventario.append(item)
+            return inventario
+
+        # Itens comuns podem ser empilhados.
         for item_existente in inventario:
 
-            if item_existente.id == item.id:
-
+            if (
+                isinstance(item_existente, Item)
+                and item_existente.id == item.id
+            ):
                 item_existente.quantidade += item.quantidade
-
                 return inventario
 
         inventario.append(item)
@@ -23,10 +31,10 @@ class InventarioSystem:
 
     @staticmethod
     def remover_item(
-        inventario: list[Item],
+        inventario: list[Item | Equipamento],
         item_id: str,
         quantidade: int = 1
-    ) -> list[Item]:
+    ) -> list[Item | Equipamento]:
 
         if quantidade <= 0:
             raise ValueError(
@@ -35,19 +43,33 @@ class InventarioSystem:
 
         for item in inventario:
 
-            if item.id == item_id:
+            if item.id != item_id:
+                continue
 
-                if item.quantidade < quantidade:
+            # Equipamentos são unidades individuais.
+            if isinstance(item, Equipamento):
+
+                if quantidade != 1:
                     raise ValueError(
-                        "Quantidade insuficiente no inventário."
+                        "Equipamentos não podem ser removidos em quantidade."
                     )
 
-                item.quantidade -= quantidade
-
-                if item.quantidade == 0:
-                    inventario.remove(item)
+                inventario.remove(item)
 
                 return inventario
+
+            # Itens empilháveis.
+            if item.quantidade < quantidade:
+                raise ValueError(
+                    "Quantidade insuficiente no inventário."
+                )
+
+            item.quantidade -= quantidade
+
+            if item.quantidade == 0:
+                inventario.remove(item)
+
+            return inventario
 
         raise ValueError(
             "Item não encontrado no inventário."
@@ -55,9 +77,9 @@ class InventarioSystem:
 
     @staticmethod
     def obter_item(
-        inventario: list[Item],
+        inventario: list[Item | Equipamento],
         item_id: str
-    ) -> Item | None:
+    ) -> Item | Equipamento | None:
 
         for item in inventario:
 
