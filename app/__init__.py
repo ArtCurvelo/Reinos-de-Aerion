@@ -1,9 +1,9 @@
-from pathlib import Path
-
 from flask import Flask
+from pathlib import Path
 
 from app.routes.principal import principal
 from app.routes.personagem import personagem
+from app.routes.inventario import inventario
 
 
 def create_app():
@@ -19,5 +19,6 @@ def create_app():
 
     app.register_blueprint(principal)
     app.register_blueprint(personagem)
+    app.register_blueprint(inventario)
 
     return app

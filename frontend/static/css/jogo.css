@@ -1,0 +1,767 @@
+/* =========================
+   TELA DE JOGO
+   ========================= */
+
+.tela-jogo {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 16px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   CABEÇALHO
+   ========================= */
+
+.cabecalho-jogo {
+    flex-shrink: 0;
+
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #3A4654;
+}
+
+.identidade-jogo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.cabecalho-jogo .titulo-jogo {
+    color: #B08D45;
+
+    font-size: 0.7rem;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.subtitulo-jogo {
+    color: #69727D;
+
+    font-size: 0.6rem;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CONTEÚDO PRINCIPAL
+   ========================= */
+
+.conteudo-jogo {
+    flex: 1;
+
+    min-height: 0;
+    min-width: 0;
+
+    display: grid;
+
+    grid-template-columns: 310px minmax(0, 1fr);
+
+    gap: 12px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   PAINEL LATERAL
+   ========================= */
+
+.painel-lateral {
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   PAINÉIS
+   ========================= */
+
+.informacoes-personagem,
+.status-personagem,
+.atributos-personagem {
+    background: #162235;
+
+    border: 1px solid #3A4654;
+    border-radius: 8px;
+
+    padding: 12px;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   INFORMAÇÕES DO PERSONAGEM
+   ========================= */
+
+.informacoes-personagem {
+    flex-shrink: 0;
+}
+
+.cabecalho-personagem {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 10px;
+}
+
+.informacoes-personagem h2 {
+    margin-bottom: 4px;
+
+    color: #E6E9ED;
+
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.classe-personagem {
+    color: #9AA4B2;
+
+    font-size: 0.65rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   NÍVEL
+   ========================= */
+
+.nivel-personagem {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 2px;
+}
+
+.nivel-personagem span {
+    color: #69727D;
+
+    font-size: 0.55rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.nivel-personagem strong {
+    color: #B08D45;
+
+    font-size: 1.35rem;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   DADOS
+   ========================= */
+
+.dados-personagem {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 6px;
+}
+
+.dado-personagem {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    padding: 7px;
+
+    background: #1C2A3D;
+
+    border: 1px solid #3A4654;
+    border-radius: 6px;
+}
+
+.dado-personagem span {
+    color: #69727D;
+
+    font-size: 0.52rem;
+    font-weight: bold;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dado-personagem strong {
+    color: #E6E9ED;
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
+
+.status-personagem {
+    flex-shrink: 0;
+}
+
+.titulo-secao {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+
+    border-bottom: 1px solid #3A4654;
+}
+
+.titulo-secao span {
+    color: #E6E9ED;
+
+    font-size: 0.62rem;
+    font-weight: bold;
+
+    letter-spacing: 1.3px;
+}
+
+
+/* =========================
+   BARRAS
+   ========================= */
+
+.barra-status {
+    margin-bottom: 9px;
+}
+
+.barra-status:last-child {
+    margin-bottom: 0;
+}
+
+.status-cabecalho {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 4px;
+
+    color: #9AA4B2;
+
+    font-size: 0.58rem;
+    font-weight: bold;
+}
+
+.barra {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+
+    background: #0D1117;
+
+    border: 1px solid #3A4654;
+    border-radius: 4px;
+}
+
+.barra-preenchimento {
+    height: 100%;
+
+    border-radius: 4px;
+
+    transition: width 0.3s ease;
+}
+
+.barra-preenchimento.vida {
+    background: #A94442;
+}
+
+.barra-preenchimento.mana {
+    background: #536FA3;
+}
+
+.barra-preenchimento.experiencia {
+    background: #8C7A3E;
+}
+
+
+/* =========================
+   ATRIBUTOS
+   ========================= */
+
+.atributos-personagem {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   LISTA DE ATRIBUTOS
+   ========================= */
+
+.grade-atributos {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 4px;
+}
+
+
+/* =========================
+   SCROLL DOS ATRIBUTOS
+   ========================= */
+
+.grade-atributos::-webkit-scrollbar {
+    width: 5px;
+}
+
+.grade-atributos::-webkit-scrollbar-track {
+    background: #0D1117;
+
+    border-radius: 4px;
+}
+
+.grade-atributos::-webkit-scrollbar-thumb {
+    background: #3A4654;
+
+    border-radius: 4px;
+}
+
+.grade-atributos::-webkit-scrollbar-thumb:hover {
+    background: #69727D;
+}
+
+
+/* =========================
+   CARD DE ATRIBUTO
+   ========================= */
+
+.atributo-card {
+    flex-shrink: 0;
+
+    height: 40px;
+    min-height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 7px 10px;
+
+    background: #1C2A3D;
+
+    border: 1px solid #3A4654;
+    border-radius: 6px;
+
+    transition:
+        background 0.15s,
+        border-color 0.15s;
+}
+
+.atributo-card:hover {
+    background: #22334A;
+
+    border-color: #69727D;
+}
+
+
+/* =========================
+   INFORMAÇÃO DO ATRIBUTO
+   ========================= */
+
+.atributo-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.atributo-icone {
+    width: 22px;
+
+    color: #B08D45;
+
+    font-size: 0.9rem;
+
+    text-align: center;
+}
+
+.atributo-nome {
+    color: #9AA4B2;
+
+    font-size: 0.62rem;
+    font-weight: bold;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* =========================
+   VALOR DO ATRIBUTO
+   ========================= */
+
+.atributo-valor {
+    display: flex;
+
+    align-items: center;
+}
+
+.atributo-valor strong {
+    color: #E6E9ED;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   PONTOS DE ATRIBUTO
+   ========================= */
+
+.pontos-habilidade {
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 8px;
+
+    padding: 8px 10px;
+
+    background: #111923;
+
+    border: 1px solid #3A4654;
+    border-radius: 6px;
+}
+
+.pontos-habilidade span {
+    color: #9AA4B2;
+
+    font-size: 0.57rem;
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+}
+
+.pontos-habilidade strong {
+    color: #B08D45;
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================
+   ÁREA DO MUNDO
+   ========================= */
+
+.area-mundo {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    padding: 14px;
+
+    background: #111923;
+
+    border: 1px solid #3A4654;
+    border-radius: 8px;
+}
+
+
+/* =========================
+   CABEÇALHO DO LOCAL
+   ========================= */
+
+.cabecalho-local {
+    flex-shrink: 0;
+
+    margin-bottom: 3px;
+}
+
+.cabecalho-local span {
+    color: #69727D;
+
+    font-size: 0.55rem;
+    font-weight: bold;
+
+    letter-spacing: 1.3px;
+}
+
+.area-mundo h2 {
+    flex-shrink: 0;
+
+    margin-top: 3px;
+
+    color: #E6E9ED;
+
+    font-size: 1.05rem;
+}
+
+.area-mundo p {
+    flex-shrink: 0;
+
+    margin-top: 3px;
+
+    color: #9AA4B2;
+
+    font-size: 0.65rem;
+}
+
+
+/* =========================
+   MAPA
+   ========================= */
+
+.mapa-mundo {
+    flex: 1;
+
+    min-height: 0;
+
+    margin-top: 12px;
+
+    background: #0D1117;
+
+    border: 1px solid #3A4654;
+    border-radius: 7px;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   MENU DO JOGO
+   ========================= */
+
+.menu-jogo {
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+.menu-jogo button {
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: #162235;
+    color: #E6E9ED;
+
+    border: 1px solid #3A4654;
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        border-color 0.15s,
+        transform 0.15s;
+}
+
+.menu-jogo button img {
+    width: 22px;
+    height: 22px;
+
+    display: block;
+
+    flex-shrink: 0;
+
+    transition: transform 0.15s;
+}
+
+.menu-jogo button:hover {
+    background: #1C2A3D;
+
+    border-color: #69727D;
+
+    transform: translateY(-1px);
+}
+
+.menu-jogo button:hover img {
+    transform: scale(1.06);
+}
+
+
+/* =========================
+   TELAS MAIS BAIXAS
+   ========================= */
+
+@media (max-height: 750px) {
+
+    .tela-jogo {
+        padding: 10px;
+    }
+
+    .cabecalho-jogo {
+        margin-bottom: 8px;
+        padding-bottom: 7px;
+    }
+
+    .conteudo-jogo {
+        gap: 8px;
+    }
+
+    .painel-lateral {
+        gap: 7px;
+    }
+
+    .informacoes-personagem,
+    .status-personagem,
+    .atributos-personagem {
+        padding: 9px;
+    }
+
+    .atributo-card {
+        height: 34px;
+        min-height: 34px;
+
+        padding: 5px 8px;
+    }
+
+    .pontos-habilidade {
+        margin-top: 5px;
+
+        padding: 6px 8px;
+    }
+
+    .menu-jogo {
+        margin-top: 7px;
+    }
+
+    .menu-jogo button {
+        height: 42px;
+    }
+
+    .menu-jogo button img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+/* =========================
+   TELAS MAIS ESTREITAS
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .conteudo-jogo {
+        grid-template-columns: 270px minmax(0, 1fr);
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .conteudo-jogo {
+        grid-template-columns: 230px minmax(0, 1fr);
+
+        gap: 8px;
+    }
+
+    .area-mundo {
+        padding: 10px;
+    }
+
+    .atributo-nome {
+        font-size: 0.57rem;
+    }
+}
+
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 560px) {
+
+    .conteudo-jogo {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto minmax(0, 1fr);
+
+        overflow: hidden;
+    }
+
+    .painel-lateral {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 6px;
+
+        overflow: hidden;
+    }
+
+    .atributos-personagem {
+        grid-column: 1 / -1;
+
+        overflow: hidden;
+    }
+
+    .grade-atributos {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 6px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .area-mundo {
+        min-height: 0;
+    }
+}

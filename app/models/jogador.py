@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 
 from app.models.classe import TipoClasse
+from app.models.item import Item
 
 
 class Jogador(BaseModel):
@@ -21,3 +22,5 @@ class Jogador(BaseModel):
     carisma: int = Field(ge=8, le=20)
 
     pontos_atributo: int = 3
+
+    inventario: list[Item] = Field(default_factory=list)

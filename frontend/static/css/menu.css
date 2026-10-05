@@ -1,0 +1,45 @@
+/* =========================
+   MENU PRINCIPAL
+   ========================= */
+
+.menu-principal {
+    text-align: center;
+}
+
+.menu-principal h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.menu-principal p {
+    margin-bottom: 30px;
+    color: #9AA4B2;
+}
+
+.menu-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-botoes button {
+    padding: 12px 40px;
+
+    border: 1px solid #3A4654;
+    border-radius: 6px;
+
+    background: #162235;
+    color: #E6E9ED;
+
+    font-size: 1rem;
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s;
+}
+
+.menu-botoes button:hover {
+    background: #1C2A3D;
+    border-color: #69727D;
+}

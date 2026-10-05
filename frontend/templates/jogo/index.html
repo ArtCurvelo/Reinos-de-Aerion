@@ -2,48 +2,77 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Reinos de Aerion</title>
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
+        href="{{ url_for('static', filename='css/base.css') }}"
     >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/jogo.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/inventario.css') }}"
+    >
+
 </head>
+
 
 <body>
 
-    <main class="tela-jogo">
-
-        <!-- CABEÇALHO -->
-
-        <header class="cabecalho-jogo">
-
-            <div class="identidade-jogo">
-
-                <span class="titulo-jogo">
-                    REINOS DE AERION
-                </span>
-
-                <span class="subtitulo-jogo">
-                    AVENTURA
-                </span>
-
-            </div>
-
-        </header>
+<main class="tela-jogo">
 
 
-        <!-- PAINEL PRINCIPAL DO PERSONAGEM -->
+    <!-- =========================
+         CABEÇALHO
+         ========================= -->
 
-        <section class="painel-jogador">
+    <header class="cabecalho-jogo">
+
+        <div class="identidade-jogo">
+
+            <span class="cabecalho-jogo titulo-jogo">
+                REINOS DE AERION
+            </span>
+
+            <span class="subtitulo-jogo">
+                UM NOVO DESTINO COMEÇA
+            </span>
+
+        </div>
+
+    </header>
 
 
-            <!-- IDENTIDADE -->
+    <!-- =========================
+         ÁREA PRINCIPAL
+         ========================= -->
 
-            <div class="informacoes-personagem">
+    <section class="conteudo-jogo">
+
+
+        <!-- =========================
+             PAINEL ESQUERDO
+             ========================= -->
+
+        <aside class="painel-lateral">
+
+
+            <!-- INFORMAÇÕES DO PERSONAGEM -->
+
+            <section class="informacoes-personagem">
 
                 <div class="cabecalho-personagem">
 
@@ -53,11 +82,12 @@
                             {{ jogador.nome }}
                         </h2>
 
-                        <p class="classe-personagem">
-                            {{ jogador.classe }}
-                        </p>
+                        <span class="classe-personagem">
+                            {{ jogador.classe.value }}
+                        </span>
 
                     </div>
+
 
                     <div class="nivel-personagem">
 
@@ -92,29 +122,91 @@
                     <div class="dado-personagem">
 
                         <span>
-                            PONTOS DE HABILIDADE
+                            EXPERIÊNCIA
                         </span>
 
                         <strong>
-                            {{ jogador.pontos_habilidade }}
+                            {{ jogador.experiencia }}
+                            /
+                            {{ jogador.experiencia_maxima }}
                         </strong>
 
                     </div>
 
                 </div>
 
-            </div>
+            </section>
 
 
-            <!-- STATUS -->
+            <!-- =========================
+                 STATUS
+                 ========================= -->
 
-            <div class="status-personagem">
+            <section class="status-personagem">
 
                 <div class="titulo-secao">
 
                     <span>
                         STATUS
                     </span>
+
+                </div>
+
+
+                <!-- VIDA -->
+
+                <div class="barra-status">
+
+                    <div class="status-cabecalho">
+
+                        <span>
+                            VIDA
+                        </span>
+
+                        <span>
+                            --
+                        </span>
+
+                    </div>
+
+
+                    <div class="barra">
+
+                        <div
+                            class="barra-preenchimento vida"
+                            style="width: 100%;"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MANA -->
+
+                <div class="barra-status">
+
+                    <div class="status-cabecalho">
+
+                        <span>
+                            MANA
+                        </span>
+
+                        <span>
+                            --
+                        </span>
+
+                    </div>
+
+
+                    <div class="barra">
+
+                        <div
+                            class="barra-preenchimento mana"
+                            style="width: 100%;"
+                        ></div>
+
+                    </div>
 
                 </div>
 
@@ -130,39 +222,33 @@
                         </span>
 
                         <span>
-                            {{ jogador.experiencia }}/{{ jogador.experiencia_maxima }}
+                            {{ jogador.experiencia }}
+                            /
+                            {{ jogador.experiencia_maxima }}
                         </span>
 
                     </div>
+
 
                     <div class="barra">
 
                         <div
                             class="barra-preenchimento experiencia"
-                            style="
-                                width:
-                                {{
-                                    (
-                                        jogador.experiencia
-                                        /
-                                        jogador.experiencia_maxima
-                                    )
-                                    * 100
-                                }}%;
-                            "
-                        >
-                        </div>
+                            style="width: {{ (jogador.experiencia / jogador.experiencia_maxima) * 100 }}%;"
+                        ></div>
 
                     </div>
 
                 </div>
 
-            </div>
+            </section>
 
 
-            <!-- ATRIBUTOS -->
+            <!-- =========================
+                 ATRIBUTOS
+                 ========================= -->
 
-            <div class="atributos-personagem">
+            <section class="atributos-personagem">
 
                 <div class="titulo-secao">
 
@@ -180,19 +266,23 @@
 
                     <div class="atributo-card">
 
-                        <span class="atributo-nome">
-                            FORÇA
-                        </span>
+                        <div class="atributo-info">
+
+                            <span class="atributo-icone">
+                                ⚔
+                            </span>
+
+                            <span class="atributo-nome">
+                                FORÇA
+                            </span>
+
+                        </div>
 
                         <div class="atributo-valor">
 
                             <strong>
                                 {{ jogador.forca }}
                             </strong>
-
-                            <span>
-                                {{ "%+d"|format((jogador.forca - 10) // 2) }}
-                            </span>
 
                         </div>
 
@@ -203,19 +293,23 @@
 
                     <div class="atributo-card">
 
-                        <span class="atributo-nome">
-                            DESTREZA
-                        </span>
+                        <div class="atributo-info">
+
+                            <span class="atributo-icone">
+                                🏹
+                            </span>
+
+                            <span class="atributo-nome">
+                                DESTREZA
+                            </span>
+
+                        </div>
 
                         <div class="atributo-valor">
 
                             <strong>
                                 {{ jogador.destreza }}
                             </strong>
-
-                            <span>
-                                {{ "%+d"|format((jogador.destreza - 10) // 2) }}
-                            </span>
 
                         </div>
 
@@ -226,19 +320,23 @@
 
                     <div class="atributo-card">
 
-                        <span class="atributo-nome">
-                            CONSTITUIÇÃO
-                        </span>
+                        <div class="atributo-info">
+
+                            <span class="atributo-icone">
+                                🛡
+                            </span>
+
+                            <span class="atributo-nome">
+                                CONSTITUIÇÃO
+                            </span>
+
+                        </div>
 
                         <div class="atributo-valor">
 
                             <strong>
                                 {{ jogador.constituicao }}
                             </strong>
-
-                            <span>
-                                {{ "%+d"|format((jogador.constituicao - 10) // 2) }}
-                            </span>
 
                         </div>
 
@@ -249,19 +347,23 @@
 
                     <div class="atributo-card">
 
-                        <span class="atributo-nome">
-                            INTELIGÊNCIA
-                        </span>
+                        <div class="atributo-info">
+
+                            <span class="atributo-icone">
+                                ✦
+                            </span>
+
+                            <span class="atributo-nome">
+                                INTELIGÊNCIA
+                            </span>
+
+                        </div>
 
                         <div class="atributo-valor">
 
                             <strong>
                                 {{ jogador.inteligencia }}
                             </strong>
-
-                            <span>
-                                {{ "%+d"|format((jogador.inteligencia - 10) // 2) }}
-                            </span>
 
                         </div>
 
@@ -272,19 +374,23 @@
 
                     <div class="atributo-card">
 
-                        <span class="atributo-nome">
-                            SABEDORIA
-                        </span>
+                        <div class="atributo-info">
+
+                            <span class="atributo-icone">
+                                ◈
+                            </span>
+
+                            <span class="atributo-nome">
+                                SABEDORIA
+                            </span>
+
+                        </div>
 
                         <div class="atributo-valor">
 
                             <strong>
                                 {{ jogador.sabedoria }}
                             </strong>
-
-                            <span>
-                                {{ "%+d"|format((jogador.sabedoria - 10) // 2) }}
-                            </span>
 
                         </div>
 
@@ -295,19 +401,23 @@
 
                     <div class="atributo-card">
 
-                        <span class="atributo-nome">
-                            CARISMA
-                        </span>
+                        <div class="atributo-info">
+
+                            <span class="atributo-icone">
+                                ♜
+                            </span>
+
+                            <span class="atributo-nome">
+                                CARISMA
+                            </span>
+
+                        </div>
 
                         <div class="atributo-valor">
 
                             <strong>
                                 {{ jogador.carisma }}
                             </strong>
-
-                            <span>
-                                {{ "%+d"|format((jogador.carisma - 10) // 2) }}
-                            </span>
 
                         </div>
 
@@ -316,120 +426,272 @@
                 </div>
 
 
-                <!-- PONTOS DE HABILIDADE -->
+                <!-- PONTOS DE ATRIBUTO -->
 
                 <div class="pontos-habilidade">
 
                     <span>
-                        PONTOS DE HABILIDADE DISPONÍVEIS
+                        PONTOS DE ATRIBUTO
                     </span>
 
                     <strong>
-                        {{ jogador.pontos_habilidade }}
+                        {{ jogador.pontos_atributo }}
                     </strong>
 
                 </div>
 
-            </div>
+            </section>
 
-        </section>
+        </aside>
 
 
-        <!-- ÁREA DO MUNDO -->
+        <!-- =========================
+             ÁREA DO MUNDO / MAPA
+             ========================= -->
 
         <section class="area-mundo">
 
             <div class="cabecalho-local">
 
                 <span>
-                    LOCALIZAÇÃO
+                    LOCALIZAÇÃO ATUAL
                 </span>
-
-                <h2>
-                    Vila Inicial
-                </h2>
 
             </div>
 
+
+            <h2>
+                Vila Inicial
+            </h2>
+
+
             <p>
-                Você está na vila inicial de Aerion.
+                Um pequeno vilarejo cercado por terras desconhecidas.
             </p>
+
+
+            <div class="mapa-mundo">
+
+                <!--
+                    FUTURO MAPA DO MUNDO
+                -->
+
+            </div>
 
         </section>
 
+    </section>
 
-        <!-- MENU -->
 
-        <nav class="menu-jogo">
+    <!-- =========================
+         MENU DO JOGO
+         ========================= -->
 
-            <button
-                type="button"
-                title="Personagem"
+    <nav class="menu-jogo">
+
+
+        <button
+            type="button"
+            id="abrir-personagem"
+            title="Personagem"
+        >
+
+            <img
+                src="{{ url_for('static', filename='icons/personagem.svg') }}"
+                alt="Personagem"
             >
 
-                <img
-                    src="{{ url_for('static', filename='icons/personagem.svg') }}"
-                    alt="Personagem"
-                >
-
-            </button>
+        </button>
 
 
-            <button
-                type="button"
-                title="Inventário"
+        <button
+            type="button"
+            id="abrir-inventario"
+            title="Inventário"
+        >
+
+            <img
+                src="{{ url_for('static', filename='icons/inventario.svg') }}"
+                alt="Inventário"
             >
 
-                <img
-                    src="{{ url_for('static', filename='icons/inventario.svg') }}"
-                    alt="Inventário"
-                >
-
-            </button>
+        </button>
 
 
-            <button
-                type="button"
-                title="Habilidades"
+        <button
+            type="button"
+            id="abrir-habilidades"
+            title="Habilidades"
+        >
+
+            <img
+                src="{{ url_for('static', filename='icons/habilidades.svg') }}"
+                alt="Habilidades"
             >
 
-                <img
-                    src="{{ url_for('static', filename='icons/habilidades.svg') }}"
-                    alt="Habilidades"
-                >
-
-            </button>
+        </button>
 
 
-            <button
-                type="button"
-                title="Quests"
+        <button
+            type="button"
+            id="abrir-quests"
+            title="Quests"
+        >
+
+            <img
+                src="{{ url_for('static', filename='icons/quests.svg') }}"
+                alt="Quests"
             >
 
-                <img
-                    src="{{ url_for('static', filename='icons/quests.svg') }}"
-                    alt="Quests"
-                >
-
-            </button>
+        </button>
 
 
-            <button
-                type="button"
-                title="Mapa"
+        <button
+            type="button"
+            id="abrir-mapa"
+            title="Mapa"
+        >
+
+            <img
+                src="{{ url_for('static', filename='icons/mapa.svg') }}"
+                alt="Mapa"
             >
 
-                <img
-                    src="{{ url_for('static', filename='icons/mapa.svg') }}"
-                    alt="Mapa"
+        </button>
+
+
+    </nav>
+
+
+    <!-- =========================
+         POPUP DO INVENTÁRIO
+         ========================= -->
+
+    <div
+        id="popup-inventario"
+        class="popup-inventario"
+        hidden
+    >
+
+        <div class="inventario-painel">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="inventario-cabecalho">
+
+                <div>
+
+                    <span class="titulo-secao">
+                        INVENTÁRIO
+                    </span>
+
+                    <span class="inventario-capacidade">
+                        0 / 33
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="botao-fechar-inventario"
+                    id="fechar-inventario"
+                    title="Fechar"
                 >
+                    ×
+                </button>
 
-            </button>
-
-        </nav>
+            </div>
 
 
-    </main>
+            <!-- CATEGORIAS -->
+
+            <div class="inventario-categorias">
+
+                <button
+                    type="button"
+                    class="categoria-inventario ativa"
+                >
+                    TODOS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="categoria-inventario"
+                >
+                    EQUIPAMENTOS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="categoria-inventario"
+                >
+                    MATERIAIS
+                </button>
+
+
+                <button
+                    type="button"
+                    class="categoria-inventario"
+                >
+                    QUEST
+                </button>
+
+            </div>
+
+
+            <!-- SLOTS -->
+
+            <div class="grade-inventario">
+
+                {% for slot in range(33) %}
+
+                    <div class="slot-inventario">
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- BOLSA DE CONSUMÍVEIS -->
+
+            <div class="bolsa-consumiveis">
+
+                <div class="titulo-bolsa">
+                    CONSUMÍVEIS
+                </div>
+
+
+                <div class="grade-consumiveis">
+
+                    {% for slot in range(6) %}
+
+                        <div class="slot-consumivel">
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<script
+    src="{{ url_for('static', filename='js/jogo.js') }}"
+></script>
 
 </body>
 

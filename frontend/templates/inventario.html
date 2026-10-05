@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventário - Reinos de Aerion</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/base.css') }}"
+    >
+</head>
+
+<body>
+
+    <main>
+        <h1>Inventário</h1>
+
+        <p>
+            Jogador: {{ jogador.nome }}
+        </p>
+
+        <p>
+            Itens: {{ jogador.inventario|length }}
+        </p>
+    </main>
+
+</body>
+</html>

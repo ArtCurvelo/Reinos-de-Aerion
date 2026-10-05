@@ -1,0 +1,262 @@
+/* =========================
+   POPUP DO INVENTÁRIO
+   ========================= */
+
+.popup-inventario {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   POPUP ABERTO
+   ========================= */
+
+.popup-inventario:not([hidden]) {
+    display: flex;
+}
+
+
+/* =========================
+   PAINEL
+   ========================= */
+
+.inventario-painel {
+    width: 90%;
+    max-width: 1000px;
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    background: #0D1117;
+
+    border: 1px solid #3A4654;
+    border-radius: 10px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================
+   CABEÇALHO
+   ========================= */
+
+.inventario-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.inventario-cabecalho > div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.titulo-secao {
+    color: #E6E9ED;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.inventario-capacidade {
+    color: #9AA4B2;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   BOTÃO FECHAR
+   ========================= */
+
+.botao-fechar-inventario {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid #3A4654;
+    border-radius: 6px;
+
+    background: #162235;
+    color: #E6E9ED;
+
+    font-size: 1.5rem;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.botao-fechar-inventario:hover {
+    background: #1C2A3D;
+    border-color: #69727D;
+}
+
+
+/* =========================
+   CATEGORIAS
+   ========================= */
+
+.inventario-categorias {
+    display: flex;
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid #3A4654;
+
+    padding-bottom: 12px;
+}
+
+.categoria-inventario {
+    padding: 8px 14px;
+
+    border: 1px solid #3A4654;
+    border-radius: 5px;
+
+    background: transparent;
+    color: #9AA4B2;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.categoria-inventario.ativa,
+.categoria-inventario:hover {
+    background: #162235;
+    color: #E6E9ED;
+
+    border-color: #69727D;
+}
+
+
+/* =========================
+   GRADE DO INVENTÁRIO
+   ========================= */
+
+.grade-inventario {
+    display: grid;
+
+    grid-template-columns: repeat(11, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================
+   SLOTS
+   ========================= */
+
+.slot-inventario,
+.slot-consumivel {
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    border: 1px solid #3A4654;
+    border-radius: 5px;
+
+    background: #111923;
+}
+
+.slot-inventario:hover,
+.slot-consumivel:hover {
+    background: #162235;
+    border-color: #69727D;
+}
+
+
+/* =========================
+   CONSUMÍVEIS
+   ========================= */
+
+.bolsa-consumiveis {
+    padding-top: 18px;
+
+    border-top: 1px solid #3A4654;
+}
+
+.titulo-bolsa {
+    margin-bottom: 10px;
+
+    color: #9AA4B2;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.grade-consumiveis {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 8px;
+
+    max-width: 420px;
+}
+
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .popup-inventario {
+        padding: 15px;
+    }
+
+    .inventario-painel {
+        width: 95%;
+        padding: 18px;
+    }
+
+    .grade-inventario {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .grade-inventario {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grade-consumiveis {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
